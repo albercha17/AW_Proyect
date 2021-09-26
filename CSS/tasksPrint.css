@@ -1,0 +1,41 @@
+
+#header{
+    font-size: 20px;
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+.botonTerminarTarea,#header menuUser{
+    display: none;
+}
+
+/*-----------------------------------TAREAS NO TERMINADAS---------------------------------------------------------*/
+.tarea{
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+.tarea nombreTarea{
+    margin-right: 50px;
+    font-size: 18px;
+
+}
+.tarea etiqueta{
+    margin-right: 10px;
+    font-size: 12px;
+}
+/*-----------------------------------TAREAS TERMINADAS---------------------------------------------------------*/
+.tareaTerminada{
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: line-through;
+    margin-left: 10px;
+    margin-top: 10px;
+
+}
+.tareaTerminada nombreTarea{
+    margin-right: 10px;
+    font-size: 18px;
+
+}
+
