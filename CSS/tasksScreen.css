@@ -105,8 +105,8 @@ body {
     margin-top: 10px;
     padding: 20px 40px;
 
-    background-color:cadetblue;
-
+    background-color:rgb(118, 188, 190);
+    opacity: 0.3;
     border-radius: 10px;
 
 }
@@ -115,4 +115,47 @@ body {
     font-size: 20px;
 
 }
+/*-----------------------------------AÑADIR TAREA---------------------------------------------------------*/
 
+.añadirTarea{
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 30px;
+    padding: 40px 40px;
+    background-color:rgb(93, 156, 158);
+    border-radius: 10px;
+}
+.botonAñadir {
+    
+    color: rgb(255, 255, 255);
+    padding: 5px 10px;
+    float:right;  /* PARA PONERLO A LA DERECHA*/
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 0px 2px;
+    cursor: pointer;
+    background-color:rgb(16, 120, 161);
+    border-radius: 5px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(255, 255, 255);
+  }
+
+/*-----------------------------------BORRAR TAREA---------------------------------------------------------*/
+
+.botonEliminar {
+    
+    color: rgb(255, 255, 255);
+    padding: 30px 10px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    margin: 40px 40%;
+    cursor: pointer;
+    background-color:rgb(16, 120, 161);
+    border-radius: 5px;
+    border-width: 3px;
+    border-style: solid;
+    border-color: rgb(255, 255, 255);
+  }
