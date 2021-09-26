@@ -1,0 +1,94 @@
+#header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 15px 20px;
+    background-color: #333;
+    font-size: 40px;
+    color: #FFFFFF;
+}
+#header usuario{
+    float: right;
+    color:white;
+    margin-right: 50px;
+    font-size: 15px;
+    align-self: flex-end;
+}
+
+body {
+    background-color:rgb(218, 218, 218);
+    margin-top: 100px;
+   
+}
+
+
+/* TARJETA TAREAS*/
+.tarea{
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 10px;
+    padding: 20px 40px;
+
+    background-color:rgb(123, 203, 206);
+
+    border-radius: 10px;
+
+}
+
+.tarea nombreTarea{
+    color:white;
+    margin-right: 50px;
+    font-size: 22px;
+
+}
+.tarea etiqueta{
+    margin-right: 10px;
+    margin-top: 10px;
+    padding: 5px 5px;
+    font-size:15px;
+    color:#FFFFFF;
+    /*borde*/
+    background-color:rgb(118, 188, 190);
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(255, 255, 255);
+    border-radius: 10px;
+}
+
+.botonTerminarTarea {
+    
+    color: rgb(255, 255, 255);
+    padding: 5px 10px;
+    float: right;  /* PARA PONERLO A LA DERECHA*/
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 0px 2px;
+    cursor: pointer;
+    background-color:rgb(112, 33, 9);
+    border-radius: 5px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(255, 255, 255);
+  }
+
+
+  /* TARJETA TAREAS TERMINADAS*/
+.tareaTerminada{
+    text-decoration: line-through;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 10px;
+    padding: 20px 40px;
+
+    background-color:cadetblue;
+
+    border-radius: 10px;
+
+}
+.tareaTerminada nombreTarea{
+    margin-right: 10px;
+    font-size: 20px;
+
+}
+
