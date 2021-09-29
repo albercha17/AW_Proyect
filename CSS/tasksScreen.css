@@ -9,7 +9,13 @@
     font-size: 40px;
     color: #FFFFFF;
 }
-
+#iconoHeader{
+    float: left;
+    width: 60px;;
+    height: 60px;
+    margin-right: 30px;
+    margin-top: 10px;
+}
 #header menuUser{
     float: right;
 }
@@ -17,13 +23,13 @@
     float: right;
     color:white;
     margin-right: 50px;
-    font-size: 15px;
+    font-size: 22px;
 }
 .botonDesconectar{
     float: right;
     color:white;
     margin-right: 40px;
-    font-size: 12px;
+    font-size: 18px;
     background-color: Transparent;
     background-repeat:no-repeat;
     border: none;
@@ -136,11 +142,14 @@ body {
 }
 .nuevaTarea{
     font-size: 20px;
-    padding: 0px 340px;
+    padding: 0px 320px;
     margin-right: 30px;
     border-width: 2px;
     border-style: solid;
     border-color: rgb(0, 0, 0);
+    transition: width 0.4s ease-in-out;
+
+    
 
 }
 .botonAñadir {
