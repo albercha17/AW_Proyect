@@ -12,6 +12,7 @@
 }
 #header tituloH{
     float: left;
+    font-size: 56px;
     margin-top: 18px;
 }
 #iconoHeader{
@@ -19,7 +20,7 @@
     width: 60px;;
     height: 60px;
     margin-right: 30px;
-    margin-top: 10px;
+    margin-top: 20px;
 }
 #header menuUser{
     float: right;
