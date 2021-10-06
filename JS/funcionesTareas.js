@@ -7,7 +7,7 @@ let listaTareas = [
      ];
 
 function getToDoTasks(tasks){
-        let listaT=listaTareas
+        let listaT=listaTareas;
         return listaT;
      }
 
