@@ -103,9 +103,7 @@ body {
     padding: 5px 10px;
     float: right;  /* PARA PONERLO A LA DERECHA*/
     text-decoration: none;
-    display: inline-block;
     font-size: 16px;
-    margin: 0px 2px;
     cursor: pointer;
     background-color:rgb(112, 33, 9);
     border-radius: 5px;
@@ -122,7 +120,7 @@ body {
     margin-right: 20%;
     margin-top: 10px;
     padding: 20px 40px;
-
+    display: block;
     background-color:rgb(154, 214, 216);
     border-radius: 10px;
     color: rgb(243, 243, 243);
@@ -146,10 +144,10 @@ body {
     border-style: solid;
     border-color: rgb(255, 255, 255);
     text-align: center;
+    display: block;
 }
 .nuevaTarea{
     font-size: 20px;
-    padding: 0px 30px;
     margin-right: 30px;
     border-width: 2px;
     border-style: solid;
@@ -159,13 +157,12 @@ body {
 
 }
 .botonAñadir {
+    float: right;
     margin-left: 20px;
     color: rgb(255, 255, 255);
     padding: 5px 10px;
     text-decoration: none;
-    display: inline-block;
     font-size: 16px;
-    margin: 0px 2px;
     cursor: pointer;
     background-color:rgb(16, 120, 161);
     border-radius: 5px;
