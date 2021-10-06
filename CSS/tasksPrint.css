@@ -25,6 +25,13 @@
     margin-right: 10px;
     font-size: 12px;
 }
+
+.tarea etiqueta::before{
+    content: "(";
+}
+.tarea etiqueta::after{
+    content: ")";
+}
 /*-----------------------------------TAREAS TERMINADAS---------------------------------------------------------*/
 .tareaTerminada{
     font-family: Arial, Helvetica, sans-serif;

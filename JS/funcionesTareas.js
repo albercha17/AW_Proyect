@@ -6,12 +6,12 @@ let listaTareas = [
      ];
 
      function getToDoTasks(listaTareas){
-        let listaT=listaTareas.filter(listaTareas.tags.filter(n=="tag")); 
+        
         return listaT;    
      }
      
       function findByTag(tasks, tag){
-         let listaT=listaTareas.filter(listaTareas.tags.filter(n=="tag"));   
+         let listaT=listaTareas.filter(n=>n.tags.filter(m=>m===tag));
          return listaT;    
   
          }
@@ -22,8 +22,9 @@ let listaTareas = [
      }
 
      function countDone(tasks){
-         let listaT=listaTareas.filter(n.done=="true");
-         return listaT;
+         let listaT=listaTareas.filter(n=>n.done===true);
+         var contador=listaT.length
+         return contador;
      }
 
      function createTask(texto){
