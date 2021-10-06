@@ -74,9 +74,11 @@ body {
     border-style: solid;
     border-color: rgb(255, 255, 255);
     border-radius: 10px;
+    text-align: right;
 }
 
 .tarea nombreTarea{
+    float: left;
     color:white;
     margin-right: 50px;
     font-size: 22px;
@@ -84,8 +86,8 @@ body {
 }
 
 .tarea etiqueta{
+    float: left;
     margin-right: 10px;
-    margin-top: 10px;
     padding: 5px 5px;
     font-size:15px;
     color:#FFFFFF;
@@ -101,7 +103,6 @@ body {
     
     color: rgb(255, 255, 255);
     padding: 5px 10px;
-    float: right;  /* PARA PONERLO A LA DERECHA*/
     text-decoration: none;
     font-size: 16px;
     cursor: pointer;
@@ -143,21 +144,24 @@ body {
     border-width: 3px;
     border-style: solid;
     border-color: rgb(255, 255, 255);
-    text-align: center;
+    text-align: right;
     display: block;
 }
 .nuevaTarea{
+    float: left;
     font-size: 20px;
     margin-right: 30px;
     border-width: 2px;
     border-style: solid;
     border-color: rgb(0, 0, 0);
     transition: width 0.4s ease-in-out;
+    max-width: 100%;
+    display: inline-block;
     
 
 }
 .botonAñadir {
-    float: right;
+    margin-top: 10px;
     margin-left: 20px;
     color: rgb(255, 255, 255);
     padding: 5px 10px;
@@ -166,7 +170,7 @@ body {
     cursor: pointer;
     background-color:rgb(16, 120, 161);
     border-radius: 5px;
-    border-width: 1px;
+    border-width: 2px;
     border-style: solid;
     border-color: rgb(255, 255, 255);
   }
