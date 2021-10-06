@@ -9,6 +9,7 @@
     font-size: 40px;
     color: #FFFFFF;
     opacity: 100%;
+    max-width: 100%;
 }
 #header tituloH{
     float: left;
@@ -75,6 +76,7 @@ body {
     border-color: rgb(255, 255, 255);
     border-radius: 10px;
     text-align: right;
+    max-width: 100%;
 }
 
 .tarea nombreTarea{
@@ -82,7 +84,6 @@ body {
     color:white;
     margin-right: 50px;
     font-size: 22px;
-
 }
 
 .tarea etiqueta{
@@ -125,6 +126,7 @@ body {
     background-color:rgb(154, 214, 216);
     border-radius: 10px;
     color: rgb(243, 243, 243);
+    max-width: 100%;
 
 }
 .tareaTerminada nombreTarea{
@@ -145,7 +147,7 @@ body {
     border-style: solid;
     border-color: rgb(255, 255, 255);
     text-align: right;
-    display: block;
+    max-width: 100%;
 }
 .nuevaTarea{
     float: left;
@@ -155,8 +157,6 @@ body {
     border-style: solid;
     border-color: rgb(0, 0, 0);
     transition: width 0.4s ease-in-out;
-    max-width: 100%;
-    display: inline-block;
     
 
 }
@@ -191,6 +191,7 @@ body {
     border-width: 3px;
     border-style: solid;
     border-color: rgb(255, 255, 255);
+    max-width: 100%;
   }
 
 /*---------------------FOOTER----------------------*/
@@ -203,4 +204,6 @@ body {
     font-size: 40px;
     color: #FFFFFF;
     text-align: center;
+    max-width: 100%;
+    display: inline-block;
 }
