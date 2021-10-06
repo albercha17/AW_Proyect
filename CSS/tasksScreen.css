@@ -68,13 +68,12 @@ body {
     margin-right: 20%;
     margin-top: 10px;
     padding: 20px 40px;
-
+    display: block;
     background-color:rgb(123, 203, 206);
     border-width: 3px;
     border-style: solid;
     border-color: rgb(255, 255, 255);
     border-radius: 10px;
-
 }
 
 .tarea nombreTarea{
