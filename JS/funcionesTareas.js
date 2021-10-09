@@ -7,8 +7,11 @@ let listaTareas = [
      ];
 
 function getToDoTasks(tasks){
-        let listaT=listaTareas;
-        return listaT;
+     var listaT=new Array()
+     for (var i = 0; i < tasks.length; i++){
+          listaT.push(tasks[i].text)
+     }
+     return listaT
      }
 
 function findByTag(tasks, tag){
@@ -29,5 +32,21 @@ function countDone(tasks){
      }
 
 function createTask(texto){
-
+     let partes = texto.split(" ");
+     let tarea=new Object();
+     tarea.text="";
+     tarea.tags= new Array();
+            for (var i = 0; i < partes.length; i++) {
+                if(partes[i].startsWith("@")){
+                     tarea.tags.push(partes[i].slice(1))
+                }
+                else{
+                     if(tarea.text===""){
+                         tarea.text=tarea.text+partes[i]
+                     }else{
+                         tarea.text=tarea.text+" "+partes[i]
+                     }
+                }
+            }
+            return tarea;
      }
