@@ -33,20 +33,17 @@ function countDone(tasks){
 
 function createTask(texto){
      let partes = texto.split(" ");
-     let tarea=new Object();
-     tarea.text="";
-     tarea.tags= new Array();
-            for (var i = 0; i < partes.length; i++) {
-                if(partes[i].startsWith("@")){
-                     tarea.tags.push(partes[i].slice(1))
-                }
-                else{
-                     if(tarea.text===""){
-                         tarea.text=tarea.text+partes[i]
-                     }else{
-                         tarea.text=tarea.text+" "+partes[i]
-                     }
-                }
-            }
-            return tarea;
+
+     let etiqueta=partes.filter(n=>n.startsWith("@")===true)
+     etiqueta=etiqueta.map(n=>n.slice(1))
+     
+     let nombreTarea=partes.filter(n=>n.startsWith("@")===false)
+     nombreTarea=nombreTarea.map(n=>n+" ") // pongo el espacio
+     nombreTarea[nombreTarea.length-1]=nombreTarea[nombreTarea.length-1].slice(0,nombreTarea[nombreTarea.length-1].length-1) // quito el espacio del ultimo
+     let nombre=nombreTarea.reduce((ac,n)=>ac+n,"") // uno todos en un string
+
+     let tarea=new Object()
+     tarea.tags=etiqueta;
+     tarea.text=nombre;
+     return tarea;
      }
