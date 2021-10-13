@@ -8,40 +8,39 @@ let listaTareas = [
 
 function getToDoTasks(tasks){
      var listaT=new Array()
-     tasks=tasks.filter(n=>n.done!=true)
-     tasks.map(n=>listaT.push(n.text)) // uno todos en un string
+     tasks=tasks.filter(n=>n.done!=true)  // filtro solo los que esten sin acabar
+     tasks.map(n=>listaT.push(n.text)) // saco solo los strings
      return listaT
      }
 
 function findByTag(tasks, tag){
-         let listaT=tasks.filter(n=>n.tags.includes(tag))
+         var listaT=tasks.filter(n=>n.tags.includes(tag)) // filtro los que contengan el tag
          return listaT; 
          }
 
 function findByTags(tasks, tags){
-        let listaT=tasks.filter(n=>n.tags.some(e => tags.includes(e)))
+        var listaT=tasks.filter(n=>n.tags.some(e => tags.includes(e))) // filtro los que contengan alguno de los tags
         return listaT;    
 
      }
 
 function countDone(tasks){
-         let listaT=tasks.filter(n=>n.done===true)
+         var listaT=tasks.filter(n=>n.done===true)  // cuento los que esten hechos
          var contador=listaT.length
          return contador;
      }
 
 function createTask(texto){
-     let partes = texto.split(" ");
+     var partes = texto.split(" ");
 
-     let etiqueta=partes.filter(n=>n.startsWith("@")===true)
-     etiqueta=etiqueta.map(n=>n.slice(1))
+     var etiqueta=partes.filter(n=>n.startsWith("@")===true)  // filtro los que son etiquetas
+     etiqueta=etiqueta.map(n=>n.slice(1)) // les quito el @
 
-     let nombreTarea=partes.filter(n=>n.startsWith("@")===false)
-     nombreTarea=nombreTarea.map(n=>n+" ") // pongo el espacio
-     nombreTarea[nombreTarea.length-1]=nombreTarea[nombreTarea.length-1].slice(0,nombreTarea[nombreTarea.length-1].length-1) // quito el espacio del ultimo
-     let nombre=nombreTarea.reduce((ac,n)=>ac+n,"") // uno todos en un string
+     var nombreTarea=partes.filter(n=>n.startsWith("@")===false)  // filtro los que NO son etiquetas
+     var nombre=nombreTarea.reduce((ac,n)=>ac+n+" ","") // uno todos en un string
+     nombre[nombre.length-1]=nombre[nombre.length-1].slice(0,nombre[nombre.length-1].length-1) // quito el espacio del ultimo
 
-     let tarea=new Object()
+     var tarea=new Object()   // los meto en un obejto nuevo
      tarea.text=nombre;
      tarea.tags=etiqueta;
      return tarea;
