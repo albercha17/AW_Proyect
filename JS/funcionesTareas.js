@@ -8,9 +8,8 @@ let listaTareas = [
 
 function getToDoTasks(tasks){
      var listaT=new Array()
-     for (var i = 0; i < tasks.length; i++){
-          listaT.push(tasks[i].text)
-     }
+     tasks=tasks.filter(n=>n.done!=true)
+     tasks.map(n=>listaT.push(n.text)) // uno todos en un string
      return listaT
      }
 
@@ -36,14 +35,14 @@ function createTask(texto){
 
      let etiqueta=partes.filter(n=>n.startsWith("@")===true)
      etiqueta=etiqueta.map(n=>n.slice(1))
-     
+
      let nombreTarea=partes.filter(n=>n.startsWith("@")===false)
      nombreTarea=nombreTarea.map(n=>n+" ") // pongo el espacio
      nombreTarea[nombreTarea.length-1]=nombreTarea[nombreTarea.length-1].slice(0,nombreTarea[nombreTarea.length-1].length-1) // quito el espacio del ultimo
      let nombre=nombreTarea.reduce((ac,n)=>ac+n,"") // uno todos en un string
 
      let tarea=new Object()
-     tarea.tags=etiqueta;
      tarea.text=nombre;
+     tarea.tags=etiqueta;
      return tarea;
      }
