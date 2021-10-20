@@ -1,67 +1,70 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>Gestor de tareas</title>
-        <link rel="stylesheet" href="CSS/tasksScreen.css" media="screen"/>
-        <link rel="stylesheet" type="text/css" href="CSS/tasksPrint.css" media="print" />
-        <link rel="shortcut icon" type="image/png" href="/imagenes/favicon.png"/>
-        <script src="JS/funcionesTareas.js"></script> 
-    </head>
-    <body>
-         <div id="header">
-                <img src="imagenes/favicon.png"  id="iconoHeader"> 
-                <tituloH>GESTOR DE TAREAS</tituloH>
-                <menuUser>
-                    <img src="imagenes/user.png"id="iconoHeader"> 
-                    <usuario>user1@ucm.es </usuario><br>
-                    <button class="button botonDesconectar">DESCONECTAR</button> 
-                </menuUser>
-            </div>
 
-        <div class="tarea">
-            <nombreTarea>PREAPARAR PRÁCTICA AW</nombreTarea>
-            <etiqueta>AW</etiqueta> <etiqueta>PRÁCTICA</etiqueta> 
-            <button class="button botonTerminarTarea">MARCAR FINALIZADA</button>       
-         </div>
-        
-        <div class="tareaTerminada">
-            <nombreTarea>MIRAR FICHAS CONGRESO</nombreTarea>
-        </div>
-    
-        <div class="tarea">
-            <nombreTarea>IR AL SUPERMERCADO</nombreTarea>
-            <etiqueta>PERSONAL</etiqueta> 
-            <button class="button botonTerminarTarea" >MARCAR FINALIZADA</button> 
-        </div>
-            
-        <div class="tarea">
-            <nombreTarea>MUDANZA</nombreTarea>
-            <etiqueta>PERSONAL</etiqueta> 
-            <button class="button botonTerminarTarea">MARCAR FINALIZADA</button> 
-        </div>
-        <div class="tareaTerminada">
-            <nombreTarea>IR AL GYM</nombreTarea>
-        </div>
-        <div class="tareaTerminada">
-            <nombreTarea>COMPRAR REGALOS</nombreTarea>
-        </div>
-        <div class="tarea">
-            <nombreTarea>EXCURSIÓN</nombreTarea>
-            <etiqueta>GRUPO</etiqueta> 
-            <etiqueta>VIAJE</etiqueta>
-            <etiqueta>EJERCICIO</etiqueta>
-            <button class="button botonTerminarTarea">MARCAR FINALIZADA</button> 
-        </div>
-        <div class="añadirTarea">
-            <input type="text" id="nuevaTarea"  class="nuevaTarea" placeholder="Tarea nueva...">
-            <button class="button botonAñadir">AÑADIR</button> 
-        </div>
-        <button class="button botonEliminar">ELIMINAR TAREAS COMPLETADAS</button>
-    </body>
-    <div id="footer">
-        <!-- <img src="imagenes/twitter.gif" id="redesSociales" width="50" style="margin-top: 10px;">
+<head>
+    <meta charset="utf-8">
+    <title>Gestor de tareas</title>
+    <link rel="stylesheet" href="CSS/tasksScreen.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="CSS/tasksPrint.css" media="print" />
+    <link rel="shortcut icon" type="image/png" href="/imagenes/favicon.png" />
+    <script src="JS/funcionesTareas.js"></script>
+</head>
+
+<body>
+    <div id="header">
+        <img src="imagenes/favicon.png" id="iconoHeader">
+        <tituloH>GESTOR DE TAREAS</tituloH>
+        <menuUser>
+            <img src="imagenes/user.png" id="iconoHeader">
+            <usuario>user1@ucm.es </usuario><br>
+            <button class="button botonDesconectar">DESCONECTAR</button>
+        </menuUser>
+    </div>
+
+    <div class="tarea">
+        <nombreTarea>PREAPARAR PRÁCTICA AW</nombreTarea>
+        <etiqueta>AW</etiqueta>
+        <etiqueta>PRÁCTICA</etiqueta>
+        <button class="button botonTerminarTarea">MARCAR FINALIZADA</button>
+    </div>
+
+    <div class="tareaTerminada">
+        <nombreTarea>MIRAR FICHAS CONGRESO</nombreTarea>
+    </div>
+
+    <div class="tarea">
+        <nombreTarea>IR AL SUPERMERCADO</nombreTarea>
+        <etiqueta>PERSONAL</etiqueta>
+        <button class="button botonTerminarTarea">MARCAR FINALIZADA</button>
+    </div>
+
+    <div class="tarea">
+        <nombreTarea>MUDANZA</nombreTarea>
+        <etiqueta>PERSONAL</etiqueta>
+        <button class="button botonTerminarTarea">MARCAR FINALIZADA</button>
+    </div>
+    <div class="tareaTerminada">
+        <nombreTarea>IR AL GYM</nombreTarea>
+    </div>
+    <div class="tareaTerminada">
+        <nombreTarea>COMPRAR REGALOS</nombreTarea>
+    </div>
+    <div class="tarea">
+        <nombreTarea>EXCURSIÓN</nombreTarea>
+        <etiqueta>GRUPO</etiqueta>
+        <etiqueta>VIAJE</etiqueta>
+        <etiqueta>EJERCICIO</etiqueta>
+        <button class="button botonTerminarTarea">MARCAR FINALIZADA</button>
+    </div>
+    <div class="añadirTarea">
+        <input type="text" id="nuevaTarea" class="nuevaTarea" placeholder="Tarea nueva...">
+        <button class="button botonAñadir">AÑADIR</button>
+    </div>
+    <button class="button botonEliminar">ELIMINAR TAREAS COMPLETADAS</button>
+</body>
+<div id="footer">
+    <!-- <img src="imagenes/twitter.gif" id="redesSociales" width="50" style="margin-top: 10px;">
         <img src="imagenes/Instagram.gif" id="redesSociales" width="90" style="margin-top: 10px;" >-->
-        </div>
-   
+</div>
+
 </html>
