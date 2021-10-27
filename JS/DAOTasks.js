@@ -10,13 +10,13 @@ class DAOTasks {
         
     }
     markTaskDone(idTask, callback) {
-        his.pool.getConnection(function (err, connection) {
+        this.pool.getConnection(function (err, connection) {
             if (err) {
                 callback(new Error("Error de conexión a la base de datos"));
             } else {
                 connection.query(
                     "UPDATE taks SET done = 1 taks WHERE id = ?" ,
-                    [email],
+                    [idTask],
                     function (err, rows) {
                         connection.release(); // devolver al pool la conexión
                         if (err) {
@@ -45,7 +45,7 @@ class DAOTasks {
 
     deleteCompleted(email, callback) {
          
-        his.pool.getConnection(function (err, connection) {
+        this.pool.getConnection(function (err, connection) {
             if (err) {
                 callback(new Error("Error de conexión a la base de datos"));
             } else {
