@@ -38,8 +38,38 @@ class DAOUsers {
             console.log("Usuario y/o contraseña incorrectos");
         }
     }
-    getUserImageName(email, callback) {
-
+    getUserImageName(email, callback) { 
+        his.pool.getConnection(function (err, connection) {
+            if (err) {
+                callback(new Error("Error de conexión a la base de datos"));
+            } else {
+                connection.query(
+                    "SELECT * FROM user WHERE email = ?",
+                    [email],
+                    function (err, rows) {
+                        connection.release(); // devolver al pool la conexión
+                        if (err) {
+                            callback(new Error("Error de acceso a la base de datos"));
+                        } else {
+                            if (rows.length === 0) {
+                                callback(null, null); //no está el usuario con el password proporcionado
+                            } else {
+                                callback(null, rows.img);
+                            }
+                        }
+                    }
+                );
+            }
+        });
+      }
+      cb_getImg(err, result) {
+        if (err) {
+            console.log(err.message);
+        } else if (result) {
+            console.log("Nombre del fichero que contiene la imagen: "+result);
+        } else {
+            console.log("Usuario incorrecto");
+        }
     }
 }
 module.exports = DAOUsers

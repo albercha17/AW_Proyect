@@ -27,6 +27,7 @@ function getToDoTasks(tasks) {
      var listaT = new Array()
      tasks = tasks.filter(n => n.done != true) // filtro solo los que esten sin acabar
      tasks.map(n => listaT.push(n.text)) // saco solo los strings
+     console.log("hola")
      return listaT;
 }
 
