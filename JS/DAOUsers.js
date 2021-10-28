@@ -44,7 +44,7 @@ class DAOUsers {
                 callback(new Error("Error de conexión a la base de datos"));
             } else {
                 connection.query(
-                    "SELECT * FROM user WHERE email = ?",
+                    "SELECT img FROM user WHERE email = ?",
                     [email],
                     function (err, rows) {
                         connection.release(); // devolver al pool la conexión
@@ -54,7 +54,7 @@ class DAOUsers {
                             if (rows.length === 0) {
                                 callback(null, null); //no está el usuario con el password proporcionado
                             } else {
-                                callback(null, rows[0].img);
+                                callback(null, rows[0]);
                             }
                         }
                     }

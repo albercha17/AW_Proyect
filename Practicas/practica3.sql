@@ -1,12 +1,15 @@
 
-create table usuario(email VARCHAR2(100)  primary key, password VARCHAR2(100), img VARCHAR2(100));
-'Teo'
+create table usuario(email VARCHAR2(100), password VARCHAR2(100), img VARCHAR2(100),PRIMARY KEY(email)));
+insert into usuario('albercha@ucm.es','12345','user_img1.jpg');
+insert into usuario('albercha17@gmail.com','12345','user_img2.jpg');
 
-create table task(id VARCHAR2(11) primary key, usuario VARCHAR2(100), text VARCHAR2(100), done VARCHAR2(1));
-insert into task values('4','Teodora','Petunia 3','0');
+create table task(id VARCHAR2(11), usuario VARCHAR2(100), text VARCHAR2(100), done VARCHAR2(1),PRIMARY KEY(id)));
+insert into task values('1','albercha@ucm.es','Ir al gym','0');
+insert into task values('2','albercha17@gmail.es','Ir al gym','1');
 
-create table tag(taskId CHAR(11) primary key, tag VARCHAR2(100) primary key);
-insert into tag values('4','123456789');
+create table tag(taskId CHAR(11), tag VARCHAR2(100) ,PRIMARY KEY(taskId, tag));
+insert into tag values('1','deporte');
+insert into tag values('1','tarde');
 
 
 
