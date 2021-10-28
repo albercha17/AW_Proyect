@@ -1,7 +1,7 @@
 
 create table usuario(email VARCHAR2(100), password VARCHAR2(100), img VARCHAR2(100),PRIMARY KEY(email));
-insert into usuario('albercha@ucm.es','12345','user_img1.jpg');
-insert into usuario('albercha17@gmail.com','12345','user_img2.jpg');
+insert into usuario values('albercha@ucm.es','12345','user_img1.jpg');
+insert into usuario values('albercha17@gmail.com','12345','user_img2.jpg');
 
 create table task(id VARCHAR2(11), usuario VARCHAR2(100), text VARCHAR2(100), done VARCHAR2(1),PRIMARY KEY(id));
 insert into task values('1','albercha@ucm.es','Ir al gym','0');
