@@ -9,7 +9,7 @@ class DAOTasks {
                 callback(new Error("Error de conexión a la base de datos"));
             } else {
                 connection.query(
-                    "SELECT (*)task,tag FROM task T,tag ta WHERE T.user = ? AND T.id=ta.taskId",
+                    "SELECT  ID,USUARIO,TEXT,DONE, TAG, TASKID FROM TASK T, TAG a WHERE T.usuario = ? AND T.id=a.TASKID",
                     [email],
                     function (err, rows) {
                         connection.release(); // devolver al pool la conexión
@@ -20,7 +20,7 @@ class DAOTasks {
                                 callback(null, false); //no está el usuario con el password proporcionado
                             } else {
                                 id, text, doney tags
-                                
+
                                 callback(null, true);
                             }
                         }

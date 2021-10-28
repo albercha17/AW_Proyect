@@ -31,6 +31,6 @@ DELETE  FROM task WHERE texy='Petunia 3' AND done = '0';
 
 
 
-SELECT  ID,USUARIO,TEXY,DONE, TAG, TASKID
+SELECT  ID,USUARIO,TEXT,DONE, TAG, TASKID
 FROM TASK T, TAG a
-WHERE T.usuario = 'a' AND T.id=a.TASKID;
+WHERE T.usuario = 'albercha@ucm.es' AND T.id='1' AND a.TASKID='1';
