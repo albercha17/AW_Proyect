@@ -3,7 +3,7 @@ class DAOTasks {
     constructor(pool) {
         this.pool = pool
     }
-    getAllTasks(email, callback) {
+    getAllTasks(email, callback) {   // preguntar si puede ser un task sin tag
         this.pool.getConnection(function (err, connection) {
             if (err) {
                 callback(new Error("Error de conexión a la base de datos"));
@@ -17,11 +17,31 @@ class DAOTasks {
                             callback(new Error("Error de acceso a la base de datos"));
                         } else {
                             if (rows.length === 0) {
-                                callback(null, false); //no está el usuario con el password proporcionado
+                                callback(null, null); //no está el usuario con el password proporcionado
                             } else {
-                                id, text, doney tags
-
-                                callback(null, true);
+                                var listaTask = new Array();
+                                var i = 0;
+                                while (i < rows.length()) {
+                                    var listaTags = new Array();
+                                    var task, tag;
+                                    task.id = rows[i].id;
+                                    task.text = rows[i].text;
+                                    task.done = rows[i].done;
+                                    tag.taskId = rows[i].taskId;
+                                    tag.tag = rows[i].tag;
+                                    listaTags.push(tag);
+                                    while (rows[i].id === rows[i + 1].id && i < rows.length()) {
+                                        i++;
+                                        tag.taskId = rows[i].taskId;
+                                        tag.tag = rows[i].tag;
+                                        listaTags.push(tag);
+                                    }
+                                    tasks.tag = listaTags;
+                                    listaTags.push(task)
+                                    i++;
+                                }
+                                // fin del bucle
+                                callback(null, trulistaTaske);
                             }
                         }
                     }
@@ -29,7 +49,7 @@ class DAOTasks {
             }
         });
     }
-    insertTask(email, task, callback) {  // si falla el insert del tag se hace rollback?????
+    insertTask(email, task, callback) { // si falla el insert del tag se hace rollback?????
         this.pool.getConnection(function (err, connection) {
             if (err) {
                 callback(new Error("Error de conexión a la base de datos"));
@@ -75,7 +95,7 @@ class DAOTasks {
                             callback(new Error("Error de acceso a la base de datos"));
                         } else {
                             callback(null);
-                            
+
                         }
                     }
                 );
@@ -106,7 +126,7 @@ class DAOTasks {
                         if (err) {
                             callback(new Error("Error de acceso a la base de datos"));
                         } else {
-                                callback(null);
+                            callback(null);
                         }
                     }
                 );
@@ -114,7 +134,7 @@ class DAOTasks {
         });
     }
     cb_DeleteTasksDone(err) {
-        if(err) {
+        if (err) {
             console.log(err.message);
         }
     }
