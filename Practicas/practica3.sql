@@ -12,13 +12,15 @@ insert into task values('4','albercha17@gmail.es','Ir al cine','0');
 insert into task values('3','pedro@ucm.es','Ir al gym','0');
 insert into task values('5','albercha@ucm.es','Ir a la compra','0');
 insert into task values('6','albercha@ucm.es','Ir al cine','1');
-insert into task values('7','albercha@ucm.es','Ir al super');
+insert into task values('7','albercha@ucm.es','Ir al super','0');
 
 
 
 create table tag(taskId int(11), tag VARCHAR(100) ,PRIMARY KEY(taskId, tag));
 insert into tag values('1','deporte');
 insert into tag values('1','tarde');
+insert into tag values('2','tarde');
+insert into tag values('3','noche');
 
 
 
