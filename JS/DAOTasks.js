@@ -10,7 +10,7 @@ class DAOTasks {
                 callback(new Error("Error de conexión a la base de datos"));
             } else {
                 connection.query(
-                    "SELECT  ID,USUARIO,TEXT,DONE, TAG, TASKID FROM TASK T, TAG a WHERE T.usuario = ? AND T.id=a.TASKID",
+                    "SELECT  id, user, text, done, tag, taskid FROM task T, tag a WHERE T.user = ? AND T.id=a.taskid",
                     [email],
                     function (err, rows) {
                         connection.release(); // devolver al pool la conexión
@@ -22,23 +22,25 @@ class DAOTasks {
                             } else {
                                 var listaTask = new Array();
                                 var i = 0;
-                                while (i < rows.length()) {
+                                while (i < rows.length) {
                                     var listaTags = new Array();
-                                    var task, tag;
+                                    var task= new Object();
+                                    var tag= new Object();
                                     task.id = rows[i].id;
                                     task.text = rows[i].text;
                                     task.done = rows[i].done;
-                                    tag.taskId = rows[i].taskId;
+                                    tag.taskId = rows[i].taskid;
                                     tag.tag = rows[i].tag;
                                     listaTags.push(tag);
-                                    while (rows[i].id === rows[i + 1].id && i < rows.length()) {
+                                    while (i < rows.length-1 && rows[i].id === rows[i + 1].id ) {
                                         i++;
-                                        tag.taskId = rows[i].taskId;
-                                        tag.tag = rows[i].tag;
-                                        listaTags.push(tag);
+                                        var tag2= new Object();
+                                        tag2.taskId = rows[i].taskid;
+                                        tag2.tag = rows[i].tag;
+                                        listaTags.push(tag2);
                                     }
-                                    tasks.tag = listaTags;
-                                    listaTags.push(task)
+                                    task.tag = listaTags;
+                                    listaTask.push(task)
                                     i++;
                                 }
                                 // fin del bucle

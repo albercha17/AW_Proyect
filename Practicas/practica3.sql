@@ -21,6 +21,10 @@ insert into tag values('1','deporte');
 insert into tag values('1','tarde');
 insert into tag values('2','tarde');
 insert into tag values('3','noche');
+insert into tag values('5','noche');
+insert into tag values('6','caro');
+insert into tag values('6','familia');
+insert into tag values('7','comida');
 
 
 
