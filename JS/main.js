@@ -44,7 +44,7 @@ function cb_DeleteTasksDone(err){
         console.log(err.message);
     }
     else{
-        console.log("Tareas borradas");
+        console.log("Tareas hechas borradas");
     }
 }
 
@@ -55,7 +55,7 @@ function cb_DoneTask(err) {
     } else {
         console.log("Tarea marcada a done con exito");
     }
-}*/
+}
 daoTask.getAllTasks("albercha@ucm.es",cb_getTasks)
 function cb_getTasks(err,lista) {
     if (err) {
@@ -80,5 +80,18 @@ function cb_getTasks(err,lista) {
             i++;
            
         }
+    }
+}*/
+let tarea=new Object();
+let tags= new Array();
+tarea.done=0;
+tarea.text="Quedar con Otegui";
+tags
+daoTask.insertTask("albercha@ucm.es", tarea,cb_insert)
+function cb_insert(err) {
+    if (err) {
+        console.log(err.message);
+    } else {
+        console.log("Tarea marcada a done con exito");
     }
 }
