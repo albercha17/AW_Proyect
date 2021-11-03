@@ -1,4 +1,5 @@
 "use strict";
+
 class DAOTasks {
     constructor(pool) {
         this.pool = pool
@@ -87,7 +88,7 @@ class DAOTasks {
                 callback(new Error("Error de conexión a la base de datos"));
             } else {
                 connection.query(
-                    "UPDATE taks SET done = 1 taks WHERE id = ?",
+                    "UPDATE task SET done = 1 taks WHERE id = ?",
                     [idTask],
                     function (err, rows) {
                         connection.release(); // devolver al pool la conexión
@@ -95,7 +96,6 @@ class DAOTasks {
                             callback(new Error("Error de acceso a la base de datos"));
                         } else {
                             callback(null);
-
                         }
                     }
                 );
@@ -103,28 +103,22 @@ class DAOTasks {
         });
 
     }
-    cb_DoneTask(err) {
-        if (err) {
-            console.log(err.message);
-        }
-    }
 
 
 
 
     deleteCompleted(email, callback) {
-
         this.pool.getConnection(function (err, connection) {
             if (err) {
                 callback(new Error("Error de conexión a la base de datos"));
             } else {
                 connection.query(
-                    "DELETE * FROM taks WHERE email = ? AND done = 1",
-                    [email],
+                    "DELETE FROM task WHERE user = ? AND done = ?",
+                    [email,1],
                     function (err, rows) {
                         connection.release(); // devolver al pool la conexión
                         if (err) {
-                            callback(new Error("Error de acceso a la base de datos"));
+                            callback(new Error("Error de acceso a la base de datos 2"));
                         } else {
                             callback(null);
                         }
@@ -133,11 +127,5 @@ class DAOTasks {
             }
         });
     }
-    cb_DeleteTasksDone(err) {
-        if (err) {
-            console.log(err.message);
-        }
-    }
-
 }
 module.exports = DAOTasks;
