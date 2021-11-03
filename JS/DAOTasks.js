@@ -42,7 +42,7 @@ class DAOTasks {
                                     i++;
                                 }
                                 // fin del bucle
-                                callback(null, trulistaTaske);
+                                callback(null,listaTask);
                             }
                         }
                     }
@@ -88,7 +88,7 @@ class DAOTasks {
                 callback(new Error("Error de conexión a la base de datos"));
             } else {
                 connection.query(
-                    "UPDATE task SET done = 1 taks WHERE id = ?",
+                    "UPDATE task SET done = 1 WHERE id = ?",
                     [idTask],
                     function (err, rows) {
                         connection.release(); // devolver al pool la conexión

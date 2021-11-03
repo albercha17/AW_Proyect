@@ -15,7 +15,7 @@ let daoTask = new DAOTasks(pool);
 // Definición de las funciones callback
 // Uso de los métodos de las clases DAOUsers y DAOTasks
 
-/*daoUser.isUserCorrect("albercha@ucm.es", "12345", cb_isUserCorrect);
+daoUser.isUserCorrect("albercha@ucm.es", "12345", cb_isUserCorrect);
 function cb_isUserCorrect(err, result) {
     if (err) {
         console.log(err.message);
@@ -38,22 +38,21 @@ function cb_getImg(err, result) {
     }
 }
 
-daoTask.deleteCompleted("albercha@ucm.es",cb_DeleteTasksDone);
+daoTask.deleteCompleted("albercha17@gmail.es",cb_DeleteTasksDone);
 function cb_DeleteTasksDone(err){
     if (err) {
         console.log(err.message);
     }
     else{
-        console.log("Borrado");
+        console.log("Tareas borradas");
     }
-}*/
+}
 
-daoTask.markTaskDone('1',cb_DoneTask);
-function cb_DoneTask(err){
+daoTask.markTaskDone(3, cb_DoneTask);
+function cb_DoneTask(err) {
     if (err) {
         console.log(err.message);
-    }
-    else{
-        console.log("Marcada con exito");
+    } else {
+        console.log("Tarea marcada a done con exito");
     }
 }
