@@ -54,7 +54,7 @@ class DAOTasks {
     }
     insertTask(email, task, callback) { // si falla el insert del tag se hace rollback?????
         var error = null;
-        var idT=null;
+        var idT = null;
         this.pool.getConnection(function (err, connection) {
             if (err) {
                 error = new Error("Error de acceso a la base de datos");
@@ -131,15 +131,39 @@ class DAOTasks {
         this.pool.getConnection(function (err, connection) {
             if (err) {
                 callback(new Error("Error de conexión a la base de datos"));
-            } else {connection.query(
-                    "DELETE FROM task WHERE user = ? AND done = ?",
+            } else {
+                connection.query(
+                    "SELECT * FROM task WHERE user = ? AND done = ?",
                     [email, 1],
                     function (err, rows) {
-                        connection.release(); // devolver al pool la conexión
                         if (err) {
                             callback(new Error("Error de acceso a la base de datos 2"));
                         } else {
-                            callback(null);
+                            var i=0;
+                            while(i<rows.length){
+                                connection.query(
+                                    "DELETE FROM tag WHERE taskId = ?",
+                                    [rows[i].id],
+                                    function (err, rows) {
+                                        if (err) {
+                                            callback(new Error("Error de acceso a la base de datos 2"));
+                                        } 
+                                    }
+                                );
+                                i++;
+                            }
+                            connection.query(
+                                "DELETE FROM task WHERE user = ? AND done = ?",
+                                [email, 1],
+                                function (err, rows) {
+                                    connection.release(); // devolver al pool la conexión
+                                    if (err) {
+                                        callback(new Error("Error de acceso a la base de datos 2"));
+                                    } else {
+                                        callback(null);
+                                    }
+                                }
+                            );
                         }
                     }
                 );
