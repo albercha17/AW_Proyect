@@ -29,15 +29,6 @@ class DAOUsers {
         });
     }
     
-    cb_isUserCorrect(err, result) {
-        if (err) {
-            console.log(err.message);
-        } else if (result) {
-            console.log("Usuario y contraseña correctos");
-        } else {
-            console.log("Usuario y/o contraseña incorrectos");
-        }
-    }
     getUserImageName(email, callback) { 
         this.pool.getConnection(function (err, connection) {
             if (err) {
@@ -62,14 +53,5 @@ class DAOUsers {
             }
         });
       }
-      cb_getImg(err, result) {
-        if (err) {
-            console.log(err.message);
-        } else if (result) {
-            console.log("Nombre del fichero que contiene la imagen: "+result);
-        } else {
-            console.log("Usuario incorrecto");
-        }
-    }
 }
 module.exports = DAOUsers

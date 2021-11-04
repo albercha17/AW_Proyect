@@ -15,7 +15,7 @@ let daoTask = new DAOTasks(pool);
 // Definición de las funciones callback
 // Uso de los métodos de las clases DAOUsers y DAOTasks
 
-/*daoUser.isUserCorrect("albercha@ucm.es", "12345", cb_isUserCorrect);
+daoUser.isUserCorrect("albercha@ucm.es", "12345", cb_isUserCorrect);
 function cb_isUserCorrect(err, result) {
     if (err) {
         console.log(err.message);
@@ -27,7 +27,7 @@ function cb_isUserCorrect(err, result) {
 }
 
 
-daoUser.getUserImageName("inmap@ucm.es", cb_getImg);
+daoUser.getUserImageName("albercha@ucm.es", cb_getImg);
 function cb_getImg(err, result) {
     if (err) {
         console.log(err.message);
@@ -38,7 +38,7 @@ function cb_getImg(err, result) {
     }
 }
 
-daoTask.deleteCompleted("albercha17@gmail.es",cb_DeleteTasksDone);
+daoTask.deleteCompleted("albercha@ucm.es",cb_DeleteTasksDone);
 function cb_DeleteTasksDone(err){
     if (err) {
         console.log(err.message);
@@ -48,7 +48,7 @@ function cb_DeleteTasksDone(err){
     }
 }
 
-daoTask.markTaskDone(3, cb_DoneTask);
+daoTask.markTaskDone(5, cb_DoneTask);
 function cb_DoneTask(err) {
     if (err) {
         console.log(err.message);
@@ -81,17 +81,19 @@ function cb_getTasks(err,lista) {
            
         }
     }
-}*/
+}
+
 let tarea=new Object();
 let tags= new Array();
 tarea.done=0;
-tarea.text="Quedar con Otegui";
-tags
+tarea.text="Ir al bar";
+tags=["beber"];
+tarea.tags=tags;
 daoTask.insertTask("albercha@ucm.es", tarea,cb_insert)
 function cb_insert(err) {
     if (err) {
         console.log(err.message);
     } else {
-        console.log("Tarea marcada a done con exito");
+        console.log("Se ha creado correctamente la tarea");
     }
 }

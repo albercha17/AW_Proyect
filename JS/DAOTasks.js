@@ -4,7 +4,7 @@ class DAOTasks {
     constructor(pool) {
         this.pool = pool
     }
-    getAllTasks(email, callback) {   // preguntar si puede ser un task sin tag
+    getAllTasks(email, callback) { // preguntar si puede ser un task sin tag
         this.pool.getConnection(function (err, connection) {
             if (err) {
                 callback(new Error("Error de conexión a la base de datos"));
@@ -24,17 +24,17 @@ class DAOTasks {
                                 var i = 0;
                                 while (i < rows.length) {
                                     var listaTags = new Array();
-                                    var task= new Object();
-                                    var tag= new Object();
+                                    var task = new Object();
+                                    var tag = new Object();
                                     task.id = rows[i].id;
                                     task.text = rows[i].text;
                                     task.done = rows[i].done;
                                     tag.taskId = rows[i].taskid;
                                     tag.tag = rows[i].tag;
                                     listaTags.push(tag);
-                                    while (i < rows.length-1 && rows[i].id === rows[i + 1].id ) {
+                                    while (i < rows.length - 1 && rows[i].id === rows[i + 1].id) {
                                         i++;
-                                        var tag2= new Object();
+                                        var tag2 = new Object();
                                         tag2.taskId = rows[i].taskid;
                                         tag2.tag = rows[i].tag;
                                         listaTags.push(tag2);
@@ -44,7 +44,7 @@ class DAOTasks {
                                     i++;
                                 }
                                 // fin del bucle
-                                callback(null,listaTask);
+                                callback(null, listaTask);
                             }
                         }
                     }
@@ -53,34 +53,52 @@ class DAOTasks {
         });
     }
     insertTask(email, task, callback) { // si falla el insert del tag se hace rollback?????
+        var error = null;
+        var idT=null;
         this.pool.getConnection(function (err, connection) {
             if (err) {
-                callback(new Error("Error de conexión a la base de datos"));
+                error = new Error("Error de acceso a la base de datos");
             } else {
                 connection.query(
-                    "INSERT INTO task (id,user,text,done) VALUES (?, ?, ?, ?)",
-                    [task.id, email, task.text, task.done],
+                    "SELECT * FROM task WHERE id = (SELECT MAX(id) FROM task);",
                     function (err, rows) {
-                        connection.release(); // devolver al pool la conexión
                         if (err) {
-                            callback(new Error("Error de acceso a la base de datos"));
+                            error = new Error("Error de acceso a la base de datos");
                         } else {
+                            idT = rows[0].id;
+                            idT++;
                             connection.query(
-                                "INSERT INTO tag (taskId, tag) VALUES (?, ?), (?, ?), (?, ?)",
-                                [],
+                                "INSERT INTO task (id,user,text,done) VALUES (?, ?, ?, ?)",
+                                [idT, email, task.text, task.done],
                                 function (err, rows) {
-                                    connection.release(); // devolver al pool la conexión
                                     if (err) {
-                                        callback(new Error("Error de acceso a la base de datos"));
+                                        error = new Error("Error de acceso a la base de datos");
                                     } else {
-                                        callback(null);
+                                        var i = 0;
+                                        var y = task.tags.length;
+                                        while (i < y) {
+                                            connection.query(
+                                                "INSERT INTO tag (taskId, tag) VALUES (?, ?)",
+                                                [idT, task.tags[i]],
+                                                function (err, rows) {
+                                                    if (err) {
+                                                        error = new Error("Error de acceso a la base de datos");
+                                                    }
+                                                }
+                                            );
+                                            i++;
+
+                                        }
                                     }
+                                    callback(error);
+                                    connection.release(); // devolver al pool la conexión
                                 }
                             );
 
                         }
                     }
                 );
+
             }
         });
     }
@@ -113,10 +131,9 @@ class DAOTasks {
         this.pool.getConnection(function (err, connection) {
             if (err) {
                 callback(new Error("Error de conexión a la base de datos"));
-            } else {
-                connection.query(
+            } else {connection.query(
                     "DELETE FROM task WHERE user = ? AND done = ?",
-                    [email,1],
+                    [email, 1],
                     function (err, rows) {
                         connection.release(); // devolver al pool la conexión
                         if (err) {
