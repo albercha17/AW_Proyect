@@ -21,28 +21,28 @@ class DAOTasks {
                                 callback(null, null); //no está el usuario con el password proporcionado
                             } else {
                                 var listaTask = new Array();
-                                var i = 0;
-                                while (i < rows.length) {
+                                var i=0;
+                                rows.forEach(function(fila) {
                                     var listaTags = new Array();
                                     var task = new Object();
                                     var tag = new Object();
-                                    task.id = rows[i].id;
-                                    task.text = rows[i].text;
-                                    task.done = rows[i].done;
-                                    tag.taskId = rows[i].taskid;
-                                    tag.tag = rows[i].tag;
+                                    task.id = fila.id;
+                                    task.text = fila.text;
+                                    task.done = fila.done;
+                                    tag.taskId = fila.taskid;
+                                    tag.tag = fila.tag;
                                     listaTags.push(tag);
-                                    while (i < rows.length - 1 && rows[i].id === rows[i + 1].id) {
+                                    while (i < rows.length - 1 && fila.id === rows[i + 1].id) {
                                         i++;
                                         var tag2 = new Object();
-                                        tag2.taskId = rows[i].taskid;
-                                        tag2.tag = rows[i].tag;
+                                        tag2.taskId = fila.taskid;
+                                        tag2.tag = fila.tag;
                                         listaTags.push(tag2);
                                     }
                                     task.tag = listaTags;
                                     listaTask.push(task)
                                     i++;
-                                }
+                                });
                                 // fin del bucle
                                 callback(null, listaTask);
                             }
@@ -76,10 +76,10 @@ class DAOTasks {
                                     } else {
                                         var i = 0;
                                         var y = task.tags.length;
-                                        while (i < y) {
+                                        task.tags.forEach(function(fila) {
                                             connection.query(
                                                 "INSERT INTO tag (taskId, tag) VALUES (?, ?)",
-                                                [idT, task.tags[i]],
+                                                [idT, fila],
                                                 function (err, rows) {
                                                     if (err) {
                                                         error = new Error("Error de acceso a la base de datos");
@@ -88,7 +88,7 @@ class DAOTasks {
                                             );
                                             i++;
 
-                                        }
+                                        })
                                     }
                                     callback(error);
                                     connection.release(); // devolver al pool la conexión
