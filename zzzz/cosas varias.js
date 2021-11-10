@@ -16,7 +16,7 @@ function isUserCorrect(email, password, callback){
                             if (rows.length === 0) {
                                 callback(new Error("No existe el usuario.")); //no está el usuario con el password proporcionado
                             } else {
-                                if(rows[0].password!=password)callback(new Error("La contraseña es incorrecta")); //no está el usuario con el password proporcionado
+                                if(rows[0].password!=password)callback(new Error("La contraseña es incorrecta.")); //no está el usuario con el password proporcionado
                                 else callback(null, true);
                             }
                         }
@@ -39,10 +39,20 @@ function imagenPerfil(img){
         '/Imagenes_de_perfil/marta.png', '/Imagenes_de_perfil/kuroko.png',
         '/Imagenes_de_perfil/defecto3.png', '/Imagenes_de_perfil/defecto2.png',
         '/Imagenes_de_perfil/defecto1.png', '/Imagenes_de_perfil/amy.png'];
-        var alea = Math.floor(Math.random() * listaImagenes);
-        return listaImagenes[alea];
+        var numero= Math.floor(Math.random() * (listaImagenes.length - 0));
+        return listaImagenes[numero];
     }
 }
+
+//validar correo
+function validarEmail(email) {
+    re = /^([\da-z_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/
+    if (!re.exec(email)) return false;
+    else return true;
+    
+}
+
+
 
 
 //-------------------------------------------------------------------------------------------------------------------------------
