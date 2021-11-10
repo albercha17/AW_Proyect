@@ -95,7 +95,7 @@ insert into respuesta values('1','1','La propiedad position sirve para posiciona
 insert into respuesta values('2','1','La pseudoclase :nth-child() selecciona los hermanos que cumplan cierta condición definida en la fórmula an + b. a y b deben ser números enteros, n es un contador. El grupo an representa un ciclo, cada cuantos elementos se repite; b indica desde donde empezamos a contar.',
 'emy@404.es');
 
-create table puntos(idPregunta int(11), user VARCHAR(100), punto tinyint(1),PRIMARY KEY(id));  // 0 si No gusta y 1 si gusta
+create table puntos(idPregunta int(11), user VARCHAR(100), punto tinyint(1),PRIMARY KEY(idPregunta,user));
 insert into puntos values('1','roberto@404.es','1');
 
 //-------------------------------------------------------------------------------------------------------------------------------
