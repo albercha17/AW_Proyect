@@ -98,8 +98,8 @@ insert into respuesta values('2','1','La pseudoclase :nth-child() selecciona los
 create table puntos(idPregunta int(11), user VARCHAR(100), punto tinyint(1),PRIMARY KEY(idPregunta,user));
 insert into puntos values('1','roberto@404.es','1');
 
-create table medallas(user VARCHAR(100), tipo VARCHAR(100),nombre VARCHAR(100),PRIMARY KEY(nombre,user));
-insert into medallas values('roberto@404.es','bronce','Estudiante');
+create table medallas(user VARCHAR(100), tipo VARCHAR(100),nombre VARCHAR(100),fecha VARCHAR(100),PRIMARY KEY(fecha,user));
+insert into medallas values('roberto@404.es','bronce','Estudiante','10-11-2021 17:38:05');
 
 //-------------------------------------------------------------------------------------------------------------------------------
 // otras operaciones que podrian ayudar en la bd
@@ -119,3 +119,4 @@ SELECT * FROM pregunta T , etiqueta a WHERE (titulo LIKE '%Node%' OR titulo like
 
 // para el numero de votos se cuenta todos los like/dislike con el mismo id 
 // cuando se voto ver primero si se ha votado ya, si se ha votado actualizo, si no lo añado
+//cada vez que se vota o se visita se recalcula las medallas
