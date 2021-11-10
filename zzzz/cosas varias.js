@@ -26,6 +26,7 @@ function isUserCorrect(email, password, callback){
         });
     }
 
+//-------------------------------------------------------------------------------------------------------------------------------
 // coge la imagen de perfil.
 // Si le doy una devuelvo esa y si no coge una aleatoriamente de las de muestra
 function imagenPerfil(img){
@@ -44,6 +45,7 @@ function imagenPerfil(img){
 }
 
 
+//-------------------------------------------------------------------------------------------------------------------------------
 //base de datos
 create table user(email VARCHAR(100), password VARCHAR(100),nombre VARCHAR(100), img VARCHAR(100),PRIMARY KEY(email));
 insert into user values('nico@404.es ','1234','Nico','/Imagenes_de_perfil/nico.png');
@@ -73,6 +75,7 @@ insert into etiqueta values('1','css3');
 insert into etiqueta values('2','css');
 insert into etiqueta values('2','html');
 insert into etiqueta values('3','JavaScript');
+insert into etiqueta values('4','nodejs');
 insert into etiqueta values('5','mysql');
 insert into etiqueta values('5','sql');
 
@@ -81,3 +84,14 @@ insert into respuesta values('1','1','La propiedad position sirve para posiciona
 'lucas@404.es');
 insert into respuesta values('2','1','La pseudoclase :nth-child() selecciona los hermanos que cumplan cierta condición definida en la fórmula an + b. a y b deben ser números enteros, n es un contador. El grupo an representa un ciclo, cada cuantos elementos se repite; b indica desde donde empezamos a contar.',
 'emy@404.es');
+
+//-------------------------------------------------------------------------------------------------------------------------------
+// otras operaciones que podrian ayudar en la bd
+
+ // seleccionar preguntas por autor
+SELECT * FROM pregunta T, etiqueta a WHERE T.autor = 'nico@404.es' AND T.id=a.idPregunta;
+
+// si buscamos que contenga una palabra
+SELECT * FROM pregunta T WHERE columna1 LIKE '%'+palbara+'%' AND columnna2 like '%'palabra2+'%';
+//ejemplo----> me busca la preguntacon sus etiquetas de aquellas preguntas quw contengan Node o JavaScript
+SELECT * FROM pregunta T , etiqueta a WHERE (titulo LIKE '%Node%' OR titulo like '%JavaScript%') AND T.id=a.idPregunta;
