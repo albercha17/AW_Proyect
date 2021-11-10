@@ -69,13 +69,11 @@ class DAOTasks {
                             idT++;
                             connection.query(
                                 "INSERT INTO task (id,user,text,done) VALUES (?, ?, ?, ?)",
-                                [idT, email, task.text, task.done],
+                                [1, email, task.text, task.done],
                                 function (err, rows) {
                                     if (err) {
-                                        error = new Error("Error de acceso a la base de datos");
+                                        error = new Error("Error de acceso a la base de datos");  // aqui tb va si ya existe en la BD
                                     } else {
-                                        var i = 0;
-                                        var y = task.tags.length;
                                         task.tags.forEach(function(fila) {
                                             connection.query(
                                                 "INSERT INTO tag (taskId, tag) VALUES (?, ?)",
