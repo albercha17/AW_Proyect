@@ -68,7 +68,7 @@ insert into user values('emy@404.es','1234','Emy','/Imagenes_de_perfil/amy.png',
 create table pregunta(id int(11), titulo VARCHAR(100), cuerpo text, autor VARCHAR(100),puntos int(11),PRIMARY KEY(id));
 insert into pregunta values('1','¿Cual es la diferencia entre position: relative, position: absolute y position: fixed?'
 ,'Sé que estas propiedades de CSS sirven para posicionar un elemento dentro de la página. Séque estas propiedades de CSS sirven para posicionar un elemento dentro de la página.',
-'nico@404.es','0');
+'nico@404.es','1');
 insert into pregunta values('2','¿Cómo funciona exactamente nth-child?','No acabo de comprender muy bien que hace exactamente y qué usos prácticos puede tener',
 'roberto@404.es','0');
 insert into pregunta values('3',' Diferencias entre == y === (comparaciones en JavaScript)','Siempre he visto que en JavaScript hay:asignaciones =comparaciones == y ===Creo entender que == hace algo parecido a comparar el valor de la variable y el === tambiéncompara el tipo (como un equals de java).',
@@ -95,6 +95,9 @@ insert into respuesta values('1','1','La propiedad position sirve para posiciona
 insert into respuesta values('2','1','La pseudoclase :nth-child() selecciona los hermanos que cumplan cierta condición definida en la fórmula an + b. a y b deben ser números enteros, n es un contador. El grupo an representa un ciclo, cada cuantos elementos se repite; b indica desde donde empezamos a contar.',
 'emy@404.es');
 
+create table puntos(idPregunta int(11), user VARCHAR(100), punto tinyint(1),PRIMARY KEY(id));  // 0 si No gusta y 1 si gusta
+insert into puntos values('1','roberto@404.es','1');
+
 //-------------------------------------------------------------------------------------------------------------------------------
 // otras operaciones que podrian ayudar en la bd
 
@@ -109,3 +112,7 @@ SELECT * FROM pregunta T WHERE columna1 LIKE '%'+palbara+'%' AND columnna2 like 
 
 //ejemplo----> me busca la preguntacon sus etiquetas de aquellas preguntas quw contengan Node o JavaScript
 SELECT * FROM pregunta T , etiqueta a WHERE (titulo LIKE '%Node%' OR titulo like '%JavaScript%') AND T.id=a.idPregunta;
+
+
+// para el numero de votos se cuenta todos los like/dislike con el mismo id 
+// cuando se voto ver primero si se ha votado ya, si se ha votado actualizo, si no lo añado
